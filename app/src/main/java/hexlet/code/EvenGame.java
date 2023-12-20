@@ -9,15 +9,13 @@ public class EvenGame {
     public static void playEven() {
         Scanner scanner = new Scanner(System.in);
         int question;
-        String answer = "";
-        boolean isCorrectAnswer = answer.equals("no") || answer.equals("yes");
 
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         while (countOfWins < 3) {
             question = getRandom();
             System.out.println("Question: " + question);
-            answer = scanner.nextLine();
+            String answer = scanner.nextLine();
             System.out.println("Your answer: " + answer);
 
             if (question % 2 == 0 && answer.equals("yes")) {
@@ -26,20 +24,9 @@ public class EvenGame {
             } else if (question % 2 != 0 && answer.equals("no")) {
                 System.out.println("Correct!");
                 countOfWins++;
-            } else if (question % 2 != 0 && answer.equals("yes")) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                System.out.println(" Let's try again, " + App.name + "!");
-                break;
-            } else if (question % 2 == 0 && answer.equals("no")) {
-                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println("Let's try again, " + App.name + "!");
-                break;
-            } else if (question % 2 == 0 && !isCorrectAnswer) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println("Let's try again, " + App.name + "!");
-                break;
-            } else if (question % 2 != 0 && !isCorrectAnswer) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
+            } else {
+                String word = question % 2 == 0 ? "yes" : "no";
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was '" + word + "'.");
                 System.out.println("Let's try again, " + App.name + "!");
                 break;
             }
