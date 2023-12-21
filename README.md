@@ -20,5 +20,9 @@ Progression
 
 https://asciinema.org/a/r3A148A0k9cccL7ZU8JhxbkFq
 
+Prime
+
+https://asciinema.org/a/FBiGd0YDwC1aBzxnzHdsHJmF5
+
 
 
