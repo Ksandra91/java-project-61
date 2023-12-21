@@ -4,6 +4,10 @@
 
 Even
 https://asciinema.org/a/NhhbI276HPaWE9GCKZ9DIAQy6
+
 Calc
+
 https://asciinema.org/a/WXG9Y1WzskCQA8VlAWN7GvqWA
+GCD
+https://asciinema.org/a/EbT65OH4JtDPQohVSYyYqiAzW
 

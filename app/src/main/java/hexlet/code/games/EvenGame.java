@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.RandomUtil;
 
 public class EvenGame {
 
@@ -17,7 +16,7 @@ public class EvenGame {
 
 
         for (int i = 0; i < Engine.countOfRounds; i++) {
-            int number = getRandom();
+            int number = RandomUtil.getRandomNumber(0, 100);
             question = Integer.toString(number);
 
             if (number % 2 == 0) {
@@ -28,13 +27,5 @@ public class EvenGame {
 
             Engine.start(question, correctAnswer);
         }
-
-    }
-
-    public static int getRandom() {
-        int maximum = 100;
-        int minimum = 0;
-        Random rn = new Random();
-        return rn.nextInt(maximum - minimum + 1) + minimum;
     }
 }
