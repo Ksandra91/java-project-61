@@ -4,18 +4,21 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtil;
 
 public class GCD {
+    private static final int RANDOM_MIN = 0;
+    private static final int RANDOM_MAX = 100;
+    public static String task = "Find the greatest common divisor of given numbers.";
+
     public static void play() {
-        String correctAnswer = "";
-        String question = "";
 
-        System.out.println("Find the greatest common divisor of given numbers.");
+        String[] questions = new String[3];
+        String[] correctAnswers = new String[3];
 
-        for (int i = 0; i < Engine.countOfRounds; i++) {
+        for (int i = 0; i < questions.length; i++) {
 
-            int numberOne = RandomUtil.getRandomNumber(0, 100);
-            int numberTwo = RandomUtil.getRandomNumber(0, 100);
+            int numberOne = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            int numberTwo = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
 
-            question = numberOne + " " + numberTwo;
+            String question = numberOne + " " + numberTwo;
 
             while (numberOne != numberTwo) {
                 if (numberOne > numberTwo) {
@@ -24,8 +27,10 @@ public class GCD {
                     numberTwo = numberTwo - numberOne;
                 }
             }
-            correctAnswer = Integer.toString(numberOne);
-            Engine.start(question, correctAnswer);
+            String correctAnswer = Integer.toString(numberOne);
+            questions[i] = question;
+            correctAnswers[i] = correctAnswer;
         }
+        Engine.start(task, questions, correctAnswers);
     }
 }

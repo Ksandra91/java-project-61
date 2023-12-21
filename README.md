@@ -2,27 +2,34 @@
 [![Actions Status](https://github.com/Ksandra91/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Ksandra91/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7788f1dd45a96ff2a08c/maintainability)](https://codeclimate.com/github/Ksandra91/java-project-61/maintainability)
 
-**Brain Games**
+#**Brain Games**
 
-Even
+The console app allows you to play one of several games with simple math tasks.
 
-https://asciinema.org/a/NhhbI276HPaWE9GCKZ9DIAQy6
+**Even** - even or odd number.
 
-Calc
+[demo](https://asciinema.org/a/NhhbI276HPaWE9GCKZ9DIAQy6)
 
-https://asciinema.org/a/WXG9Y1WzskCQA8VlAWN7GvqWA
+**Calc** - simple math operations.
 
-GCD
+[demo](https://asciinema.org/a/WXG9Y1WzskCQA8VlAWN7GvqWA)
 
-https://asciinema.org/a/EbT65OH4JtDPQohVSYyYqiAzW
+**GCD** - find the greatest common divisor.
 
-Progression
+[demo](https://asciinema.org/a/EbT65OH4JtDPQohVSYyYqiAzW)
 
-https://asciinema.org/a/r3A148A0k9cccL7ZU8JhxbkFq
+**Progression** - find the missing number in the row
 
-Prime
+[demo](https://asciinema.org/a/r3A148A0k9cccL7ZU8JhxbkFq)
 
-https://asciinema.org/a/FBiGd0YDwC1aBzxnzHdsHJmF5
+**Prime** - prime number.
 
+[demo](https://asciinema.org/a/FBiGd0YDwC1aBzxnzHdsHJmF5)
+
+## Run
+
+```bash
+make run-dist
+```
 
 

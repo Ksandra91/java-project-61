@@ -4,40 +4,42 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtil;
 
 public class Progression {
+    private static final int PROGRESSION_LENGTH = 10;
+    private static final int RANDOM_MIN = 0;
+    private static final int RANDOM_MAX = 100;
+    private static final int STEP_MIN = 1;
+    private static final int STEP_MAX = 5;
+    public static String task = "What number is missing in the progression?";
+
     public static void play() {
 
-        String correctAnswer = "";
-        String question = "";
+        String[] questions = new String[3];
+        String[] correctAnswers = new String[3];
 
+        for (int i = 0; i < questions.length; i++) {
 
-        System.out.println("What number is missing in the progression?");
+            int firstElement = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            int progressionStep = RandomUtil.getRandomNumber(STEP_MIN, STEP_MAX);
+            int hiddenMemberIndex = RandomUtil.getRandomNumber(0, PROGRESSION_LENGTH - 1);
 
-        for (int i = 0; i < Engine.countOfRounds; i++) {
-            int[] numbers = new int[10];
-            StringBuilder stringBuilder = new StringBuilder();
+            String[] progression = makeProgression(firstElement, progressionStep);
+            String correctAnswer = progression[hiddenMemberIndex];
+            progression[hiddenMemberIndex] = "..";
 
-            int firstElement = RandomUtil.getRandomNumber(0, 100);
-            int progressionStep = RandomUtil.getRandomNumber(1, 5);
-            numbers[0] = firstElement;
-            int hiddenNumber = RandomUtil.getRandomNumber(0, 9);
+            String question = String.join(" ", progression);
 
-            for (int j = 1; j < numbers.length; j++) {
-                numbers[j] = numbers[0] + progressionStep * j;
-            }
-
-            correctAnswer = Integer.toString(numbers[hiddenNumber]);
-
-            for (int k = 0; k < numbers.length; k++) {
-                if (k == hiddenNumber) {
-                    stringBuilder.append("..");
-                } else {
-                    stringBuilder.append(numbers[k]);
-                }
-                stringBuilder.append(" ");
-            }
-            question = stringBuilder.toString();
-
-            Engine.start(question, correctAnswer);
+            questions[i] = question;
+            correctAnswers[i] = correctAnswer;
         }
+        Engine.start(task, questions, correctAnswers);
+    }
+
+    public static String[] makeProgression(int first, int step) {
+        String[] progression = new String[PROGRESSION_LENGTH];
+        progression[0] = Integer.toString(first);
+        for (int i = 1; i < PROGRESSION_LENGTH; i++) {
+            progression[i] = Integer.toString(first + step * i);
+        }
+        return progression;
     }
 }

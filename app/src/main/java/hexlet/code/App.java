@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -18,38 +22,42 @@ public class App {
                 6 - Prime
                 0 - Exit""");
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
         System.out.println("Your choice: " + choice);
 
         switch (choice) {
-            case 0:
+            case "0":
                 break;
-            case 1:
-                Engine.welcome();
+            case "1":
+                sayHello();
                 break;
-            case 2:
-                Engine.welcome();
-                EvenGame.play();
+            case "2":
+                Even.play();
                 break;
-            case 3:
-                Engine.welcome();
+            case "3":
                 Calculator.play();
                 break;
-            case 4:
-                Engine.welcome();
+            case "4":
                 GCD.play();
                 break;
-            case 5:
-                Engine.welcome();
+            case "5":
                 Progression.play();
                 break;
-            case 6:
-                Engine.welcome();
+            case "6":
                 Prime.play();
                 break;
             default:
                 System.out.println("Вы ввели неверный номер");
                 break;
         }
+
+    }
+
+    private static void sayHello() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        Scanner scanner = new Scanner(System.in);
+        String playerName = scanner.nextLine();
+        System.out.println("Hello, " + playerName + "!");
     }
 }

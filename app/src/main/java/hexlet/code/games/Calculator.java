@@ -4,21 +4,23 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtil;
 
 public class Calculator {
+
+    private static final int RANDOM_MIN = 0;
+    private static final int RANDOM_MAX = 10;
+    public static String task = "What is the result of the expression?";
+
     public static void play() {
 
-        String correctAnswer = "";
-        int result = 0;
-        String question = "";
+        String[] questions = new String[3];
+        String[] correctAnswers = new String[3];
 
-        System.out.println("What is the result of the expression?");
+        for (int i = 0; i < questions.length; i++) {
 
-        for (int i = 0; i < Engine.countOfRounds; i++) {
-
-            int numberOne = RandomUtil.getRandomNumber(0, 10);
-            int numberTwo = RandomUtil.getRandomNumber(0, 10);
+            int numberOne = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            int numberTwo = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
             char sign = RandomUtil.getRandomSign();
-
-            question = numberOne + " " + sign + " " + numberTwo;
+            int result = 0;
+            String question = numberOne + " " + sign + " " + numberTwo;
 
             switch (sign) {
                 case '+':
@@ -31,10 +33,11 @@ public class Calculator {
                     result = numberOne - numberTwo;
                     break;
                 default:
-
             }
-            correctAnswer = Integer.toString(result);
-            Engine.start(question, correctAnswer);
+            String correctAnswer = Integer.toString(result);
+            questions[i] = question;
+            correctAnswers[i] = correctAnswer;
         }
+        Engine.start(task, questions, correctAnswers);
     }
 }
