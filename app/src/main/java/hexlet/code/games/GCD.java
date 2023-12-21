@@ -6,12 +6,12 @@ import hexlet.code.RandomUtil;
 public class GCD {
     private static final int RANDOM_MIN = 0;
     private static final int RANDOM_MAX = 100;
-    public static String task = "Find the greatest common divisor of given numbers.";
+    private static final String TASK = "Find the greatest common divisor of given numbers.";
 
     public static void play() {
 
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
+        String[] questions = new String[Engine.COUNT_OF_ROUNDS];
+        String[] correctAnswers = new String[Engine.COUNT_OF_ROUNDS];
 
         for (int i = 0; i < questions.length; i++) {
 
@@ -31,6 +31,6 @@ public class GCD {
             questions[i] = question;
             correctAnswers[i] = correctAnswer;
         }
-        Engine.start(task, questions, correctAnswers);
+        Engine.start(TASK, questions, correctAnswers);
     }
 }

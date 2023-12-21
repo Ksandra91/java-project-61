@@ -7,12 +7,12 @@ public class Calculator {
 
     private static final int RANDOM_MIN = 0;
     private static final int RANDOM_MAX = 10;
-    public static String task = "What is the result of the expression?";
+    private static final String TASK = "What is the result of the expression?";
 
     public static void play() {
 
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
+        String[] questions = new String[Engine.COUNT_OF_ROUNDS];
+        String[] correctAnswers = new String[Engine.COUNT_OF_ROUNDS];
 
         for (int i = 0; i < questions.length; i++) {
 
@@ -38,6 +38,6 @@ public class Calculator {
             questions[i] = question;
             correctAnswers[i] = correctAnswer;
         }
-        Engine.start(task, questions, correctAnswers);
+        Engine.start(TASK, questions, correctAnswers);
     }
 }

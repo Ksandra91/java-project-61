@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Engine {
 
     private static int countOfWins;
+    public static final int COUNT_OF_ROUNDS = 3;
 
 
     public static void start(String task, String[] questions, String[] correctAnswers) {
@@ -16,8 +17,8 @@ public class Engine {
 
         System.out.println(task);
 
-        int countOfRounds = 3;
-        for (int i = 0; i < countOfRounds; i++) {
+
+        for (int i = 0; i < COUNT_OF_ROUNDS; i++) {
             System.out.println("Question: " + questions[i]);
             String answer = scanner.nextLine();
             System.out.println("Your answer: " + answer);
@@ -32,7 +33,7 @@ public class Engine {
                 System.out.println("Let's try again, " + playerName + "!");
                 System.exit(0);
             }
-            if (countOfWins == countOfRounds) {
+            if (countOfWins == COUNT_OF_ROUNDS) {
                 System.out.println("Congratulations, " + playerName + "!");
             }
         }

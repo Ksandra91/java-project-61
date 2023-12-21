@@ -9,12 +9,12 @@ public class Progression {
     private static final int RANDOM_MAX = 100;
     private static final int STEP_MIN = 1;
     private static final int STEP_MAX = 5;
-    public static String task = "What number is missing in the progression?";
+    private static final String TASK = "What number is missing in the progression?";
 
     public static void play() {
 
-        String[] questions = new String[3];
-        String[] correctAnswers = new String[3];
+        String[] questions = new String[Engine.COUNT_OF_ROUNDS];
+        String[] correctAnswers = new String[Engine.COUNT_OF_ROUNDS];
 
         for (int i = 0; i < questions.length; i++) {
 
@@ -31,7 +31,7 @@ public class Progression {
             questions[i] = question;
             correctAnswers[i] = correctAnswer;
         }
-        Engine.start(task, questions, correctAnswers);
+        Engine.start(TASK, questions, correctAnswers);
     }
 
     public static String[] makeProgression(int first, int step) {
