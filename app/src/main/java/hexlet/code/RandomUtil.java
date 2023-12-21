@@ -12,6 +12,6 @@ public class RandomUtil {
     public static char getRandomSign() {
         char[] signs = {'+', '*', '-'};
         Random rn = new Random();
-        return signs[rn.nextInt(3)];
+        return signs[rn.nextInt(signs.length)];
     }
 }
