@@ -26,7 +26,7 @@ public class Prime {
         Engine.start(TASK, questions, correctAnswers);
     }
 
-    public static boolean isPrime(Integer number) {
+    public static boolean isPrime(int number) {
         if (number < 2) {
             return false;
         }
