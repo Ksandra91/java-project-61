@@ -17,7 +17,7 @@ public class GCD {
             int numberOne = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
             int numberTwo = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
 
-            String question = numberOne + " " + numberTwo;
+            String question = Integer.toString(numberOne) + " " + Integer.toString(numberTwo);
 
             String correctAnswer = Integer.toString(gcd(numberOne, numberTwo));
             round[Engine.INDEX_OF_QUESTION] = question;
