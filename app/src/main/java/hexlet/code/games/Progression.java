@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtil;
+import hexlet.code.RandomUtils;
 
 public class Progression {
     private static final int PROGRESSION_LENGTH = 10;
@@ -13,14 +13,13 @@ public class Progression {
 
     public static void play() {
 
-        String[] questions = new String[Engine.COUNT_OF_ROUNDS];
-        String[] correctAnswers = new String[Engine.COUNT_OF_ROUNDS];
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_OF_GAME_DATA];
 
-        for (int i = 0; i < questions.length; i++) {
+        for (var round : gameData) {
 
-            int firstElement = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
-            int progressionStep = RandomUtil.getRandomNumber(STEP_MIN, STEP_MAX);
-            int hiddenMemberIndex = RandomUtil.getRandomNumber(0, PROGRESSION_LENGTH - 1);
+            int firstElement = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            int progressionStep = RandomUtils.getRandomNumber(STEP_MIN, STEP_MAX);
+            int hiddenMemberIndex = RandomUtils.getRandomNumber(0, PROGRESSION_LENGTH - 1);
 
             String[] progression = makeProgression(firstElement, progressionStep);
             String correctAnswer = progression[hiddenMemberIndex];
@@ -28,10 +27,10 @@ public class Progression {
 
             String question = String.join(" ", progression);
 
-            questions[i] = question;
-            correctAnswers[i] = correctAnswer;
+            round[Engine.INDEX_OF_QUESTION] = question;
+            round[Engine.INDEX_OF_CORRECT_ANSWER] = correctAnswer;
         }
-        Engine.start(TASK, questions, correctAnswers);
+        Engine.start(TASK, gameData);
     }
 
     public static String[] makeProgression(int first, int step) {

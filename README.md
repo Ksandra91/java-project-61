@@ -2,7 +2,7 @@
 [![Actions Status](https://github.com/Ksandra91/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Ksandra91/java-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7788f1dd45a96ff2a08c/maintainability)](https://codeclimate.com/github/Ksandra91/java-project-61/maintainability)
 
-#**Brain Games**
+##**Brain Games**
 
 The console app allows you to play one of several games with simple math tasks.
 
@@ -26,9 +26,13 @@ The console app allows you to play one of several games with simple math tasks.
 
 [demo](https://asciinema.org/a/FBiGd0YDwC1aBzxnzHdsHJmF5)
 
-## Run
+## How to insrall and run
 
 ```bash
+git clone git@github.com:Ksandra91/java-project-61.git
+cd java-project-61
+./gradlew install
+cd java-project-61/app
 make run-dist
 ```
 

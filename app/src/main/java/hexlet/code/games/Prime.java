@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtil;
+import hexlet.code.RandomUtils;
 
 public class Prime {
     private static final int RANDOM_MIN = 0;
@@ -10,20 +10,19 @@ public class Prime {
 
     public static void play() {
 
-        String[] questions = new String[Engine.COUNT_OF_ROUNDS];
-        String[] correctAnswers = new String[Engine.COUNT_OF_ROUNDS];
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_OF_GAME_DATA];
 
-        for (int i = 0; i < questions.length; i++) {
+        for (var round : gameData) {
 
-            int number = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            int number = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
             String question = Integer.toString(number);
 
             String correctAnswer = isPrime(number) ? "yes" : "no";
 
-            questions[i] = question;
-            correctAnswers[i] = correctAnswer;
+            round[Engine.INDEX_OF_QUESTION] = question;
+            round[Engine.INDEX_OF_CORRECT_ANSWER] = correctAnswer;
         }
-        Engine.start(TASK, questions, correctAnswers);
+        Engine.start(TASK, gameData);
     }
 
     public static boolean isPrime(int number) {

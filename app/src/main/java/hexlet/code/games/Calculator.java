@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtil;
+import hexlet.code.RandomUtils;
 
 public class Calculator {
 
@@ -10,16 +10,13 @@ public class Calculator {
     private static final String TASK = "What is the result of the expression?";
 
     public static void play() {
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][Engine.COUNT_OF_GAME_DATA];
 
-        String[] questions = new String[Engine.COUNT_OF_ROUNDS];
-        String[] correctAnswers = new String[Engine.COUNT_OF_ROUNDS];
-
-        for (int i = 0; i < questions.length; i++) {
-
-            int numberOne = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
-            int numberTwo = RandomUtil.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
-            char sign = RandomUtil.getRandomSign();
-            int result = 0;
+        for (var round : gameData) {
+            int numberOne = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            int numberTwo = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
+            char sign = RandomUtils.getRandomSign(new char[]{'+', '*', '-'});
+            int result;
             String question = numberOne + " " + sign + " " + numberTwo;
 
             switch (sign) {
@@ -33,11 +30,12 @@ public class Calculator {
                     result = numberOne - numberTwo;
                     break;
                 default:
+                    throw new RuntimeException("Unknown input: " + sign);
             }
             String correctAnswer = Integer.toString(result);
-            questions[i] = question;
-            correctAnswers[i] = correctAnswer;
+            round[Engine.INDEX_OF_QUESTION] = question;
+            round[Engine.INDEX_OF_CORRECT_ANSWER] = correctAnswer;
         }
-        Engine.start(TASK, questions, correctAnswers);
+        Engine.start(TASK, gameData);
     }
 }

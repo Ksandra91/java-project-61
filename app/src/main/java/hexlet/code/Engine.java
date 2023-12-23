@@ -3,12 +3,13 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-
-    private static int countOfWins;
     public static final int COUNT_OF_ROUNDS = 3;
+    public static final int COUNT_OF_GAME_DATA = 2;
+    public static final int INDEX_OF_QUESTION = 0;
+    public static final int INDEX_OF_CORRECT_ANSWER = 1;
 
 
-    public static void start(String task, String[] questions, String[] correctAnswers) {
+    public static void start(String task, String[][] gameData) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner scanner = new Scanner(System.in);
@@ -18,24 +19,22 @@ public class Engine {
         System.out.println(task);
 
 
-        for (int i = 0; i < COUNT_OF_ROUNDS; i++) {
-            System.out.println("Question: " + questions[i]);
+        for (var round : gameData) {
+
+            System.out.println("Question: " + round[INDEX_OF_QUESTION]);
             String answer = scanner.nextLine();
             System.out.println("Your answer: " + answer);
 
-            if (answer.equals(correctAnswers[i])) {
+            if (answer.equals(round[INDEX_OF_CORRECT_ANSWER])) {
                 System.out.println("Correct!");
-                countOfWins++;
 
             } else {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was '"
-                        + correctAnswers[i] + "'.");
+                        + round[INDEX_OF_CORRECT_ANSWER] + "'.");
                 System.out.println("Let's try again, " + playerName + "!");
-                System.exit(0);
-            }
-            if (countOfWins == COUNT_OF_ROUNDS) {
-                System.out.println("Congratulations, " + playerName + "!");
+                return;
             }
         }
+        System.out.println("Congratulations, " + playerName + "!");
     }
 }
