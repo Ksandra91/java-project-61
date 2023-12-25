@@ -29,11 +29,8 @@ The console app allows you to play one of several games with simple math tasks.
 ## How to install and run
 
 ```bash
-git clone git@github.com:Ksandra91/java-project-61.git
-cd java-project-61
-./gradlew install
 cd java-project-61/app
-make run-dist
+make build run
 ```
 
 

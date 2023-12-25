@@ -9,8 +9,8 @@ public class RandomUtils {
         return rn.nextInt(maximum - minimum + 1) + minimum;
     }
 
-    public static char getRandomSign(char[] signs) {
+    public static char getRandomOperator(char[] operators) {
         Random rn = new Random();
-        return signs[rn.nextInt(signs.length)];
+        return operators[rn.nextInt(operators.length)];
     }
 }

@@ -15,27 +15,27 @@ public class Calculator {
         for (var round : gameData) {
             int numberOne = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
             int numberTwo = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
-            char sign = RandomUtils.getRandomSign(new char[]{'+', '*', '-'});
-            int result;
-            String question = numberOne + " " + sign + " " + numberTwo;
-
-            switch (sign) {
-                case '+':
-                    result = numberOne + numberTwo;
-                    break;
-                case '*':
-                    result = numberOne * numberTwo;
-                    break;
-                case '-':
-                    result = numberOne - numberTwo;
-                    break;
-                default:
-                    throw new RuntimeException("Unknown input: " + sign);
-            }
+            char operator = RandomUtils.getRandomOperator(new char[]{'+', '*', '-'});
+            String question = numberOne + " " + operator + " " + numberTwo;
+            int result = calculate(operator, numberOne, numberTwo);
             String correctAnswer = Integer.toString(result);
             round[Engine.INDEX_OF_QUESTION] = question;
             round[Engine.INDEX_OF_CORRECT_ANSWER] = correctAnswer;
         }
         Engine.start(TASK, gameData);
     }
+
+    private static int calculate(char operator, int number1, int number2) {
+        switch (operator) {
+            case '+':
+                return number1 + number2;
+            case '-':
+                return number1 - number2;
+            case '*':
+                return number1 * number2;
+            default:
+                throw new RuntimeException("Unknown operator: " + operator);
+        }
+    }
+
 }
