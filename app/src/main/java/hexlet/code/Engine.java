@@ -32,9 +32,11 @@ public class Engine {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was '"
                         + round[INDEX_OF_CORRECT_ANSWER] + "'.");
                 System.out.println("Let's try again, " + playerName + "!");
+                scanner.close();
                 return;
             }
         }
         System.out.println("Congratulations, " + playerName + "!");
+        scanner.close();
     }
 }
