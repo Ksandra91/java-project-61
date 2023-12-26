@@ -17,7 +17,7 @@ public class GCD {
             int numberOne = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
             int numberTwo = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
 
-            String question = Integer.toString(numberOne) + " " + Integer.toString(numberTwo);
+            String question = numberOne + " " + numberTwo;
 
             String correctAnswer = Integer.toString(gcd(numberOne, numberTwo));
             round[Engine.INDEX_OF_QUESTION] = question;
@@ -26,15 +26,8 @@ public class GCD {
         Engine.start(TASK, gameData);
     }
 
-    public static int gcd(int numberOne, int numberTwo) {
-
-        while (numberOne != numberTwo) {
-            if (numberOne > numberTwo) {
-                numberOne = numberOne - numberTwo;
-            } else {
-                numberTwo = numberTwo - numberOne;
-            }
-        }
-        return numberOne;
+    private static int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
+
 }

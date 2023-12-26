@@ -15,7 +15,11 @@ public class Calculator {
         for (var round : gameData) {
             int numberOne = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
             int numberTwo = RandomUtils.getRandomNumber(RANDOM_MIN, RANDOM_MAX);
-            char operator = RandomUtils.getRandomOperator(new char[]{'+', '*', '-'});
+
+            final char[] operators = new char[]{'+', '*', '-'};
+            var indexOperator = RandomUtils.getRandomNumber(0, operators.length - 1);
+            var operator = operators[indexOperator];
+
             String question = numberOne + " " + operator + " " + numberTwo;
             int result = calculate(operator, numberOne, numberTwo);
             String correctAnswer = Integer.toString(result);
