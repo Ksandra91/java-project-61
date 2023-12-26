@@ -10,9 +10,10 @@ public class Engine {
 
 
     public static void start(String task, String[][] gameData) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        Scanner scanner = new Scanner(System.in);
+
         String playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName + "!");
 
@@ -21,11 +22,15 @@ public class Engine {
 
         for (var round : gameData) {
 
-            System.out.println("Question: " + round[INDEX_OF_QUESTION]);
+            String question = round[INDEX_OF_QUESTION];
+            String correctAnswer = round[INDEX_OF_CORRECT_ANSWER];
+
+            System.out.println("Question: " + question);
             String answer = scanner.nextLine();
             System.out.println("Your answer: " + answer);
 
-            if (answer.equals(round[INDEX_OF_CORRECT_ANSWER])) {
+
+            if (answer.equals(correctAnswer)) {
                 System.out.println("Correct!");
 
             } else {
